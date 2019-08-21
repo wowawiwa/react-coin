@@ -2,7 +2,7 @@ import React from 'react'
 
 import { handleResponse } from '../../helpers'
 import { API_URL } from '../../config'
-import './Table.css'
+import Table from './Table'
 import Loading from '../common/Loading'
 
 class List extends React.Component {
@@ -11,11 +11,14 @@ class List extends React.Component {
 
     this.state = {
       loading: false,
+
+      page: 1,
+      pageTotal: null,
       currencies: [],
       error: null,
     }
   }
-  
+
   componentDidMount() {
     this.setState({loading: true})
 
@@ -27,7 +30,7 @@ class List extends React.Component {
       })
       .catch(err => {
         console.log("ERRRRooooo");
-        // if the networking fails, this will fail because err.errorMessage is undefined?
+        // TODO: if the networking fails, this will fail because err.errorMessage is undefined?
         this.setState({error: err.errorMessage, loading: false})
         console.log("ERRRRooooo rrrrrrr");
       })
@@ -42,51 +45,14 @@ class List extends React.Component {
       return <div className="error">{this.state.error}</div>
     }
 
-    if (this.state.currencies) {
-      return <div className="Table-container">
-        <table className="Table">
-          <thead className="Table-head">
-            <tr>
-              <th>Crypto</th>
-              <th>Price</th>
-              <th>Market cap</th>
-              <th>24H change</th>
-            </tr>
-          </thead>
-          <tbody className="Table-body">
-            {this.state.currencies.map((cur) => (
-              <tr key={cur.id}>
-                <td>
-                  <span className="Table-rank">{cur.rank}</span>
-                  {cur.name}
-                </td>
-                <td>
-                  <span className="Table-dollar">$ {cur.price}</span>
-                </td>
-                <td>
-                  <span className="Table-dollar">$ {cur.marketCap}</span>
-                </td>
-                <td>
-                  {this.renderChangePercent(cur.percentChange24h)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    if (this.state.currencies.length > 1) {
+      return <div>
+        <Table currencies={this.state.currencies}/>
+        {/* <Pagination current={this.state.page} total={this.state.pageTotal}/> */}
       </div>
     }
 
     return <div>No currencies loaded</div>
-  }
-
-  renderChangePercent(percent) {
-    if (percent > 0) {
-      return <span className="percent-raised">{percent}% &uarr;</span>
-    } 
-    if (percent < 0) {
-      return <span className="percent-fallen">{percent}% &darr;</span>
-    }
-    return <span>{percent}%</span>
   }
 }
 
