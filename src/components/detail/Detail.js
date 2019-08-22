@@ -67,13 +67,20 @@ class Detail extends React.Component {
   // private
 
   componentDidMount() {
-    this.fetchDetails()
+    this.fetchDetails(this.props.currency)
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currency === this.props.currency) {
+      return
+    }
+    this.fetchDetails(nextProps.currency);
   }
 
-  fetchDetails() {
+  fetchDetails(currency) {
     this.setState({loading: true})
 
-    fetch(`${API_URL}/cryptocurrencies/${this.props.currency}`)
+    fetch(`${API_URL}/cryptocurrencies/${currency}`)
     .then(handleResponse)
     .then(data => {
       this.setState({currency: data, error: null, loading: false})
