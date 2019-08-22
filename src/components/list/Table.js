@@ -1,17 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './Table.css'
+import { renderChangePercent } from '../../helpersView';
 
-const renderChangePercent = (percent) => {
-  if (percent > 0) {
-    return <span className="percent-raised">{percent}% &uarr;</span>
-  } 
-  if (percent < 0) {
-    return <span className="percent-fallen">{percent}% &darr;</span>
-  }
-  return <span>{percent}%</span>
-}
-
-const Table = (props) => {
+const Table = ({currencies, history}) => {
   return <div className="Table-container">
     <table className="Table">
       <thead className="Table-head">
@@ -23,8 +15,8 @@ const Table = (props) => {
         </tr>
       </thead>
       <tbody className="Table-body">
-        {props.currencies.map((cur) => (
-          <tr key={cur.id}>
+        {currencies.map((cur) => (
+          <tr key={cur.id} onClick={() => history.push(`/currency/${cur.id}`)}>
             <td>
               <span className="Table-rank">{cur.rank}</span>
               {cur.name}
@@ -47,4 +39,4 @@ const Table = (props) => {
   </div>
 }
 
-export default Table
+export default withRouter(Table)

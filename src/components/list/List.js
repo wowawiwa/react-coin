@@ -35,14 +35,14 @@ class List extends React.Component {
       return <div className="error">{this.state.error}</div>
     }
 
-    if (this.state.currencies.length > 1) {
-      return <div>
-        <Table currencies={this.state.currencies}/>
-        <Pagination current={this.state.page} total={this.state.pageTotal} onPageChange={this.onPageChange}/>
-      </div>
+    if (this.state.currencies.length <= 1) {
+      return <div>No currencies loaded</div>
     }
 
-    return <div>No currencies loaded</div>
+    return <div>
+      <Table currencies={this.state.currencies}/>
+      <Pagination current={this.state.page} total={this.state.pageTotal} onPageChange={this.onPageChange}/>
+    </div>
   }
 
   onPageChange(pageNum) {
