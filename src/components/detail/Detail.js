@@ -1,9 +1,10 @@
 import React from 'react'
+
+import './Detail.css'
 import { handleResponse } from '../../helpers'
 import { renderChangePercent } from '../../helpersView'
 import Loading from '../common/Loading'
 import { API_URL } from '../../config'
-import './Detail.css'
 
 class Detail extends React.Component {
   constructor() {
@@ -86,8 +87,7 @@ class Detail extends React.Component {
       this.setState({currency: data, error: null, loading: false})
     })
     .catch(err => {
-      console.log("HELL");
-      
+      console.log("Error");
       this.setState({error: err.errorMessage, loading: false})
     })
   }

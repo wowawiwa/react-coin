@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+npm run build
+git add build
+git cm build
+git subtree push --prefix build origin gh-pages
+
+

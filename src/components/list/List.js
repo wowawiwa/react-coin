@@ -54,14 +54,13 @@ class List extends React.Component {
   fetchCurrencies() {
     this.setState({loading: true})
 
-    // TODO: Move URL to config
     fetch(`${API_URL}/cryptocurrencies?page=${this.state.page}&perPage=20`)
     .then(handleResponse)
     .then(data => {
       this.setState({currencies: data.currencies, pageTotal: data.totalPages, loading: false})
     })
     .catch(err => {
-      // TODO: if the networking fails, this will fail because err.errorMessage is undefined?
+      // TODO: if the networking fails, this will fail because err.errorMessage is undefined.
       this.setState({error: err.errorMessage, loading: false})
     })
   }

@@ -1,9 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+
+import './Search.css'
 import { API_URL } from '../../config';
 import { handleResponse } from '../../helpers';
 import Loading from './Loading';
-import './Search.css'
 
 class Search extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class Search extends React.Component {
   }
 
   render() {
-    // TODO: remove size
+    // TODO: Size in px is a bad interface.
     return <div className="Search">
       <span className="Search-icon"/>
       
@@ -80,7 +81,7 @@ class Search extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({query: event.target.value, loading: true}) // TODO: introduce debounce
+    this.setState({query: event.target.value, loading: true}) // TODO: debounce
 
     if (this.state.query === '') {
       return

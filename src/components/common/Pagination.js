@@ -1,13 +1,13 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
+
 import './Pagination.css'
 
 const Pagination = ({current, total, onPageChange}) => {
   let elements = []
 
   if (!total || !current || total < 2 || current > total) {
-    return null // TODO: check
+    return null // TODO: may not be the best solution
   }
   
   if (current > 1) {
