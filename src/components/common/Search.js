@@ -1,10 +1,91 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
-import './Search.css'
 import { API_URL } from '../../config';
 import { handleResponse } from '../../helpers';
 import Loading from './Loading';
+
+const StyledSearch = styled.div`
+  position: relative;
+  width: 30%;
+  height: 35px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+`
+const SearchIcon = styled.span`
+  z-index: 1;
+  position: absolute;
+  top: 9px;
+  left: 28px;
+  background-image: url('./search.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 18px;
+  height: 18px;
+`
+
+const SearchInput = styled.input`
+  box-sizing: border-box;
+  background-color: #1f364d;
+  border-radius: 4px;
+  border: 0;
+  padding-left: 35px;
+  color: white;
+  opacity: .8;
+  transition: opacity .2s;
+  width: 100%;
+  height: 35px;
+
+  :focus {
+    outline: none;
+    opacity: 1;
+  }
+
+  ::placeholder {
+    color: #9cb3c9;
+    opacity: 1;
+  }
+`
+
+const SearchLoading = styled.div`
+  position: absolute;
+  top: 9px;
+  right: 28px;
+`
+
+const SearchResultContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-height: 299px;
+  overflow-y: auto;
+  background-color: #0f273d;
+  border: 1px solid #0c2033;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px#1f364d;
+  margin-top: 10px;
+`
+
+const SearchResult = styled.div`
+  color: #9cb3c9;
+  padding: 15px 0 15px 35px;
+  border-bottom: 2px solid #0c2033;
+  cursor: pointer;
+  :hover {
+    color: #fff;
+  }
+`
+
+const SearchNoResult = styled.div`
+  color: #9cb3c9;
+  padding: 15px 0 15px 35px;
+  border-bottom: 1px solid #0f273d;
+`
 
 class Search extends React.Component {
   constructor() {
@@ -22,11 +103,10 @@ class Search extends React.Component {
 
   render() {
     // TODO: Size in px is a bad interface.
-    return <div className="Search">
-      <span className="Search-icon"/>
+    return <StyledSearch>
+      <SearchIcon/>
       
-      <input 
-        className="Search-input"
+      <SearchInput 
         type="text"
         placeholder="Currency name"
         onChange={this.handleChange}
@@ -34,13 +114,13 @@ class Search extends React.Component {
       />
       
       {
-        this.state.loading && <div className="Search-loading">
+        this.state.loading && <SearchLoading>
           <Loading size="12px"/>
-        </div>
+        </SearchLoading>
       }
 
       {this.renderSearchResults()}
-    </div>
+    </StyledSearch>
   }
 
   renderSearchResults() {
@@ -52,25 +132,24 @@ class Search extends React.Component {
     
     if (results.length <= 0) {
       return (
-        <div className="Search-result-container">
-          <div className="Search-no-result">
+        <SearchResultContainer>
+          <SearchNoResult>
             No results found.
-          </div>
-        </div>
+          </SearchNoResult>
+        </SearchResultContainer>
       );
     } else {
       return (
-        <div className="Search-result-container">
+        <SearchResultContainer>
           {this.state.results.map(res => (
-            <div
+            <SearchResult
               key={res.id}
-              className="Search-result"
               onClick={() => this.handleClick(res.id)}
             >
               {res.name} ({res.symbol})
-            </div>
+            </SearchResult>
           ))}
-        </div>
+        </SearchResultContainer>
       );
     }
   }

@@ -1,7 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import './Pagination.css'
+const StyledPagination = styled.div`
+  margin: 50px auto;
+  text-align: center;
+`
+const StyledPaginationButton = styled.button`
+  text-align: center;
+  border: none;
+  border-radius: 16px;
+  background-color: #4997e5;
+  transition: background-color .2s;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  width: 44px;
+  height: 34px;
+
+  :hover {
+    background-color: #457cb2;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :disabled {
+    background-color: #1f364d;
+    cursor: not-allowed;
+  }
+`
 
 const Pagination = ({current, total, onPageChange}) => {
   let elements = []
@@ -11,18 +40,18 @@ const Pagination = ({current, total, onPageChange}) => {
   }
   
   if (current > 1) {
-    elements.push(<button className="Pagination-button" onClick={(event) => onPageChange(1)}>1</button>)
-    elements.push(<button className="Pagination-button" onClick={(event) => onPageChange(current - 1)}>&larr;</button>)
+    elements.push(<StyledPaginationButton onClick={(event) => onPageChange(1)}>1</StyledPaginationButton>)
+    elements.push(<StyledPaginationButton onClick={(event) => onPageChange(current - 1)}>&larr;</StyledPaginationButton>)
   }
 
-  elements.push(<button className="Pagination-button" disabled>{current}</button>)
+  elements.push(<StyledPaginationButton disabled>{current}</StyledPaginationButton>)
 
   if (current < total) {
-    elements.push(<button className="Pagination-button" onClick={(event) => onPageChange(current + 1)}>&rarr;</button>)
-    elements.push(<button className="Pagination-button" onClick={(event) => onPageChange(total)}>{total}</button>)
+    elements.push(<StyledPaginationButton onClick={(event) => onPageChange(current + 1)}>&rarr;</StyledPaginationButton>)
+    elements.push(<StyledPaginationButton onClick={(event) => onPageChange(total)}>{total}</StyledPaginationButton>)
   }
 
-  return <div className="Pagination">{elements}</div>
+  return <StyledPagination>{elements}</StyledPagination>
 }
 
 Pagination.propTypes = {
