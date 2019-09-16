@@ -4,7 +4,8 @@ import { handleResponse } from '../../helpers'
 import { API_URL } from '../../config'
 import Table from './Table'
 import Pagination from '../common/Pagination'
-import Loading from '../common/Loading'
+import { Loading, LoadingContainer } from '../common/Loading'
+import Error from '../common/Error'
 
 class List extends React.Component {
   constructor() {
@@ -28,11 +29,11 @@ class List extends React.Component {
   
   render() {
     if (this.state.loading) {
-      return <div className="loading-container"><Loading/></div>
+      return <LoadingContainer><Loading/></LoadingContainer>
     } 
 
     if (this.state.error) {
-      return <div className="error">{this.state.error}</div>
+      return <Error>{this.state.error}</Error>
     }
 
     if (this.state.currencies.length <= 1) {

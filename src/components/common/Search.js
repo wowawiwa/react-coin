@@ -4,88 +4,7 @@ import styled from 'styled-components'
 
 import { API_URL } from '../../config';
 import { handleResponse } from '../../helpers';
-import Loading from './Loading';
-
-const StyledSearch = styled.div`
-  position: relative;
-  width: 30%;
-  height: 35px;
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @media (max-width: 700px) {
-    width: 100%;
-  }
-`
-const SearchIcon = styled.span`
-  z-index: 1;
-  position: absolute;
-  top: 9px;
-  left: 28px;
-  background-image: url('./search.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 18px;
-  height: 18px;
-`
-
-const SearchInput = styled.input`
-  box-sizing: border-box;
-  background-color: #1f364d;
-  border-radius: 4px;
-  border: 0;
-  padding-left: 35px;
-  color: white;
-  opacity: .8;
-  transition: opacity .2s;
-  width: 100%;
-  height: 35px;
-
-  :focus {
-    outline: none;
-    opacity: 1;
-  }
-
-  ::placeholder {
-    color: #9cb3c9;
-    opacity: 1;
-  }
-`
-
-const SearchLoading = styled.div`
-  position: absolute;
-  top: 9px;
-  right: 28px;
-`
-
-const SearchResultContainer = styled.div`
-  position: relative;
-  width: 100%;
-  max-height: 299px;
-  overflow-y: auto;
-  background-color: #0f273d;
-  border: 1px solid #0c2033;
-  border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px#1f364d;
-  margin-top: 10px;
-`
-
-const SearchResult = styled.div`
-  color: #9cb3c9;
-  padding: 15px 0 15px 35px;
-  border-bottom: 2px solid #0c2033;
-  cursor: pointer;
-  :hover {
-    color: #fff;
-  }
-`
-
-const SearchNoResult = styled.div`
-  color: #9cb3c9;
-  padding: 15px 0 15px 35px;
-  border-bottom: 1px solid #0f273d;
-`
+import { Loading } from './Loading';
 
 class Search extends React.Component {
   constructor() {
@@ -178,5 +97,92 @@ class Search extends React.Component {
     })
   }
 }
+
+const StyledSearch = styled.div`
+  position: relative;
+  width: 30%;
+  height: 35px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+
+  margin: 0 auto;
+  padding: 0 20px;
+`
+const SearchIcon = styled.span`
+  z-index: 1;
+  position: absolute;
+  top: 9px;
+  left: 28px;
+  width: 18px;
+  height: 18px;
+
+  background-image: url('./search.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+`
+
+const SearchInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  
+  background-color: #1f364d;
+  border-radius: 4px;
+  border: 0;
+  padding-left: 35px;
+  color: white;
+  opacity: .8;
+  transition: opacity .2s;
+
+  :focus {
+    outline: none;
+    opacity: 1;
+  }
+
+  ::placeholder {
+    color: #9cb3c9;
+    opacity: 1;
+  }
+`
+
+const SearchLoading = styled.div`
+  position: absolute;
+  top: 9px;
+  right: 28px;
+`
+
+const SearchResultContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-height: 299px;
+  overflow-y: auto;
+  
+  margin-top: 10px;
+
+  background-color: #0f273d;
+  border: 1px solid #0c2033;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px#1f364d;
+`
+
+const SearchResult = styled.div`
+  padding: 15px 0 15px 35px;
+  
+  color: #9cb3c9;
+  border-bottom: 2px solid #0c2033;
+  cursor: pointer;
+  :hover {
+    color: #fff;
+  }
+`
+
+const SearchNoResult = styled.div`
+  padding: 15px 0 15px 35px;
+  color: #9cb3c9;
+  border-bottom: 1px solid #0f273d;
+`
 
 export default withRouter(Search)

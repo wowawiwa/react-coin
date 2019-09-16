@@ -3,56 +3,9 @@ import styled from 'styled-components'
 
 import { handleResponse } from '../../helpers'
 import { renderChangePercent } from '../../helpersView'
-import Loading from '../common/Loading'
+import { Loading, LoadingContainer } from '../common/Loading'
+import Error from '../common/Error'
 import { API_URL } from '../../config'
-
-const StyledDetail = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
-  padding: 0 60px;
-`
-
-const DetailHeading = styled.h1`
-  font-size: 24px;
-  font-weight: 300;
-`
-
-const DetailContainer = styled.div`
-  width: 100%;
-  max-width: 400px;
-  margin-top: 30px;
-  padding: 40px 40px 0;
-  border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px#1f364d;
-`
-
-const DetailItem = styled.div`
-  margin-bottom: 50px;
-`
-
-const DetailValue = styled.span`
-  border-radius: 20px;
-  background-color: #1f364d;
-  font-size: 14px;
-  padding: 8px 12px;
-  margin-left: 10px;
-`
-
-const DetailTitle = styled.span`
-  display: block;
-  color: #9cb3c9;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 10px;
-`
-
-const DetailDollar = styled.span`
-  color: #9cb3c9;
-  margin-right: 6px;
-`
 
 class Detail extends React.Component {
   constructor() {
@@ -72,14 +25,14 @@ class Detail extends React.Component {
     }
 
     if (this.state.error !== null) {
-      return <div className="error">Error: {this.state.error}</div>
+      return <Error>Error: {this.state.error}</Error>
     }
 
     if (!this.state.currency) {
       return <div>No currencies loaded.</div>
     }
 
-    return <Detail>
+    return <StyledDetail>
       <DetailHeading>
         {this.state.currency.name} ({this.state.currency.symbol})
       </DetailHeading>
@@ -110,7 +63,7 @@ class Detail extends React.Component {
           {this.state.currency.totalSupply}
         </DetailItem>
       </DetailContainer>
-    </Detail>
+    </StyledDetail>
   }
 
   // private
@@ -140,5 +93,57 @@ class Detail extends React.Component {
     })
   }
 }
+
+const StyledDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 60px;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+`
+
+const DetailHeading = styled.h1`
+  font-size: 24px;
+  font-weight: 300;
+`
+
+const DetailContainer = styled.div`
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+  padding: 40px 40px 0;
+
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px#1f364d;
+`
+
+const DetailItem = styled.div`
+  margin-bottom: 50px;
+`
+
+const DetailValue = styled.span`
+  padding: 8px 12px;
+  margin-left: 10px;
+
+  border-radius: 20px;
+  background-color: #1f364d;
+  font-size: 14px;
+`
+
+const DetailTitle = styled.span`
+  display: block;
+  
+  margin-bottom: 10px;
+  color: #9cb3c9;
+  font-size: 12px;
+  font-weight: bold;
+`
+
+const DetailDollar = styled.span`
+  margin-right: 6px;
+  color: #9cb3c9;
+`
 
 export default Detail

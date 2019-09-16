@@ -10,6 +10,7 @@ const TableContainer = styled.div`
 
 const StyledTable = styled.table`
   width: 100%;
+
   border-collapse: collapse;
   border-spacing: 0;
 `
@@ -39,14 +40,14 @@ const TableBody = styled.tbody`
 `
 
 const TableRank = styled.span`
-  color: #9cb3c9;
   margin-right: 18px;
+  color: #9cb3c9;
   font-size: 12px;
 `
 
 const TableDollar = styled.span`
-  color: #9cb3c9;
   margin-right: 6px;
+  color: #9cb3c9;
 `
 
 const Table = ({currencies, history}) => {

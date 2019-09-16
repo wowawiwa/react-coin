@@ -5,14 +5,24 @@ import styled from 'styled-components'
 import logo from './logo.png'
 import Search from './Search';
 
+const Header = () => {
+  return <StyledHeader>
+    <Link to="/">
+      <StyledHeaderLogo src={logo} alt="logo"></StyledHeaderLogo>
+    </Link>
+    <Search/>
+  </StyledHeader>
+}
+
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  background-color: #0f273d;
   width: 100%;
   height: 80px;
+
+  justify-content: center;
+  background-color: #0f273d;
 `
 
 const StyledHeaderLogo = styled.img`
@@ -25,14 +35,4 @@ const StyledHeaderLogo = styled.img`
     display: none;
   }
 `
-
-const Header = () => {
-  return <StyledHeader>
-    <Link to="/">
-      <StyledHeaderLogo src={logo} alt="logo"></StyledHeaderLogo>
-    </Link>
-    <Search/>
-  </StyledHeader>
-}
-
 export default Header

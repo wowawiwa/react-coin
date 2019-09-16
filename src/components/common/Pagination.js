@@ -2,36 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledPagination = styled.div`
-  margin: 50px auto;
-  text-align: center;
-`
-const StyledPaginationButton = styled.button`
-  text-align: center;
-  border: none;
-  border-radius: 16px;
-  background-color: #4997e5;
-  transition: background-color .2s;
-  color: white;
-  cursor: pointer;
-  margin: 10px;
-  width: 44px;
-  height: 34px;
-
-  :hover {
-    background-color: #457cb2;
-  }
-
-  :focus {
-    outline: none;
-  }
-
-  :disabled {
-    background-color: #1f364d;
-    cursor: not-allowed;
-  }
-`
-
 const Pagination = ({current, total, onPageChange}) => {
   let elements = []
 
@@ -59,5 +29,36 @@ Pagination.propTypes = {
   total: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 }
+
+const StyledPagination = styled.div`
+  margin: 50px auto;
+  text-align: center;
+`
+const StyledPaginationButton = styled.button`
+  width: 44px;
+  height: 34px;
+
+  text-align: center;
+  border: none;
+  border-radius: 16px;
+  background-color: #4997e5;
+  transition: background-color .2s;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+
+  :hover {
+    background-color: #457cb2;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :disabled {
+    background-color: #1f364d;
+    cursor: not-allowed;
+  }
+`
 
 export default Pagination
