@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/react-coin/static/js/main.4c54a768.chunk.js",
+    "main.js.map": "/react-coin/static/js/main.4c54a768.chunk.js.map",
+    "runtime~main.js": "/react-coin/static/js/runtime~main.bfc76da1.js",
+    "runtime~main.js.map": "/react-coin/static/js/runtime~main.bfc76da1.js.map",
+    "static/js/2.a7d06391.chunk.js": "/react-coin/static/js/2.a7d06391.chunk.js",
+    "static/js/2.a7d06391.chunk.js.map": "/react-coin/static/js/2.a7d06391.chunk.js.map",
+    "index.html": "/react-coin/index.html",
+    "precache-manifest.2cc0d5047d5a62c4f1024583dbe698aa.js": "/react-coin/precache-manifest.2cc0d5047d5a62c4f1024583dbe698aa.js",
+    "service-worker.js": "/react-coin/service-worker.js",
+    "static/media/logo.png": "/react-coin/static/media/logo.5c0436d5.png"
+  }
+}
