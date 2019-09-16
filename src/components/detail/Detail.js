@@ -116,7 +116,7 @@ const DetailContainer = styled.div`
   padding: 40px 40px 0;
 
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px#1f364d;
+  box-shadow: 0px 0px 40px 0px ${props => props.theme.mainHigh};
 `
 
 const DetailItem = styled.div`
@@ -128,7 +128,7 @@ const DetailValue = styled.span`
   margin-left: 10px;
 
   border-radius: 20px;
-  background-color: #1f364d;
+  background-color: ${props => props.theme.mainHigh};
   font-size: 14px;
 `
 
@@ -136,14 +136,14 @@ const DetailTitle = styled.span`
   display: block;
   
   margin-bottom: 10px;
-  color: #9cb3c9;
+  color: ${props => props.theme.secTxt};
   font-size: 12px;
   font-weight: bold;
 `
 
 const DetailDollar = styled.span`
   margin-right: 6px;
-  color: #9cb3c9;
+  color: ${props => props.theme.secTxt};
 `
 
 export default Detail

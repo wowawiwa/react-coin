@@ -17,7 +17,7 @@ const StyledLoader = styled.div`
   height: 28px;
   display: inline-block;
 
-  border: 2px solid #fff;
+  border: 2px solid ${props => props.theme.priTxt};
   border-right-color: transparent;
   border-radius: 50%;
   animation: rotate 1s infinite linear;

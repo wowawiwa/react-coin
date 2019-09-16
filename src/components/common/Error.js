@@ -5,7 +5,7 @@ const Error = styled.div`
   margin: 40px 0;
 
   text-align: center;
-  color: #d64d96;
+  color: ${props => props.theme.errTxt};
 `
 
 export default Error

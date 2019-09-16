@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const PercentRaised = styled.span`
-  color: #3cd483;
+  color: ${props => props.theme.raisedTxt};
 `
 
 const PercentFallen = styled.span`
-  color: #d64d96;
+  color: ${props => props.theme.fallenTxt};
 `
 
 export const renderChangePercent = (percent) => {

@@ -41,14 +41,14 @@ const StyledPaginationButton = styled.button`
   text-align: center;
   border: none;
   border-radius: 16px;
-  background-color: #4997e5;
+  background-color: ${props => props.theme.contrastedEl};
   transition: background-color .2s;
   color: white;
   cursor: pointer;
   margin: 10px;
 
   :hover {
-    background-color: #457cb2;
+    background-color: ${props => props.theme.contrastedHoverEl};
   }
 
   :focus {
@@ -56,7 +56,7 @@ const StyledPaginationButton = styled.button`
   }
 
   :disabled {
-    background-color: #1f364d;
+    background-color: ${props => props.theme.mainHigh};
     cursor: not-allowed;
   }
 `

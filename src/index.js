@@ -1,30 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 import Header from './components/common/Header'
 import List from './components/list/List'
 import Detail from './components/detail/Detail'
 import NotFound from './components/notfound/NotFound'
 
-/*
-  Application colors
+const colours = {
+  // Text
+  white:             "#fff",
+  blueGray:          "#9cb3c9",
+  indigo:            "#d64d96",
+  green:             "#3cd483",
 
-  text:               #fff;
-  text-secondary:     #9cb3c9;
+  // Elements
+  blue:              "#1f364d",
+  blueDarker:        "#0f273d",
+  blueDarkerDarker:  "#0c2033",
+  blueLighter:       "#4997e5",
+  blueLighterGrayer: "#457cb2",
+}
 
-  error-red:          #d64d96;
+const theme = {
+  priTxt: colours.white,
+  secTxt: colours.blueGray,
+  errTxt: colours.indigo,
 
-  green:              #3cd483;
+  raisedTxt: colours.green,
+  fallenTxt: colours.indigo,
 
-  indigo-light:       #1f364d;
-  indigo-normal:      #0f273d;
-  indigo-dark:        #0c2033;
+  mainEl: colours.blueDarker,
+  mainEl2: colours.blueDarkerDarker,
+  mainHigh: colours.blue,
 
-  blue-normal:        #4997e5;
-  blue-dark:          #457cb2;
-*/
+  contrastedEl:      colours.blueLighter,
+  contrastedHoverEl: colours.blueLighterGrayer,
+}
+
 const GlobalStyle = createGlobalStyle`
   /* Load Open Sans font from Google Fonts */
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
@@ -38,9 +52,9 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: #0c2033;
+    background-color: ${props => props.theme.mainEl2};
     font-family: 'Open Sans', sans-serif;
-    color: #fff;
+    color: ${props => props.theme.priTxt};
     letter-spacing: .5px;
     font-size: 16px;
     font-weight: 300;
@@ -49,15 +63,17 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <GlobalStyle/>
-    <div>
-      <Header/>
-      <Switch>
-        <Route exact path="/" component={List}/>
-        <Route path="/currency/:id" render={(props) => <Detail currency={props.match.params.id}/>}/>
-        <Route component={NotFound}/>
-      </Switch>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <GlobalStyle/>
+        <Header/>
+        <Switch>
+          <Route exact path="/" component={List}/>
+          <Route path="/currency/:id" render={(props) => <Detail currency={props.match.params.id}/>}/>
+          <Route component={NotFound}/>
+        </Switch>
+      </div>
+    </ThemeProvider>
   </BrowserRouter>
 }
 

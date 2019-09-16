@@ -129,7 +129,7 @@ const SearchInput = styled.input`
   width: 100%;
   height: 35px;
   
-  background-color: #1f364d;
+  background-color: ${props => props.theme.mainHigh};
   border-radius: 4px;
   border: 0;
   padding-left: 35px;
@@ -143,7 +143,7 @@ const SearchInput = styled.input`
   }
 
   ::placeholder {
-    color: #9cb3c9;
+    color: ${props => props.theme.secTxt};
     opacity: 1;
   }
 `
@@ -162,27 +162,27 @@ const SearchResultContainer = styled.div`
   
   margin-top: 10px;
 
-  background-color: #0f273d;
-  border: 1px solid #0c2033;
+  background-color: ${props => props.theme.mainEl};
+  border: 1px solid ${props => props.theme.mainEl2};
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px#1f364d;
+  box-shadow: 0px 0px 40px 0px ${props => props.theme.mainHigh};
 `
 
 const SearchResult = styled.div`
   padding: 15px 0 15px 35px;
   
-  color: #9cb3c9;
-  border-bottom: 2px solid #0c2033;
+  color: ${props => props.theme.secTxt};
+  border-bottom: 2px solid  ${props => props.theme.mainEl2};
   cursor: pointer;
   :hover {
-    color: #fff;
+    color: ${props => props.theme.priTxt};
   }
 `
 
 const SearchNoResult = styled.div`
   padding: 15px 0 15px 35px;
-  color: #9cb3c9;
-  border-bottom: 1px solid #0f273d;
+  color: ${props => props.theme.secTxt};
+  border-bottom: 1px solid ${props => props.theme.mainEl};
 `
 
 export default withRouter(Search)

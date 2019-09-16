@@ -11,7 +11,7 @@ const StyledNotFound = styled.div`
 
 const NotFoundTitle = styled.h1`
   font-weight: 400;
-  color: #9cb3c9;
+  color: ${props => props.theme.secTxt};
 `
 
 const NotFoundLink = styled(Link)`
@@ -19,14 +19,14 @@ const NotFoundLink = styled(Link)`
 
   padding: 18px;
   margin-top: 40px;
-  color: #fff;
+  color: ${props => props.theme.priTxt};
   text-decoration: none;
-  border: 1px solid #9cb3c9;
+  border: 1px solid ${props => props.theme.secTxt};
   border-radius: 4px;
   transition: border .2s;
 
   :hover {
-    border: 1px solid #fff;
+    border: 1px solid ${props => props.theme.priTxt};
   }
 `
 
