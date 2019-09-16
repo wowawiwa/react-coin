@@ -22,7 +22,7 @@ const StyledHeader = styled.div`
   height: 80px;
 
   justify-content: center;
-  background-color: ${props => props.theme.mainBg};
+  background-color: ${({theme}) => theme.mainBg};
 `
 
 const StyledHeaderLogo = styled.img`
@@ -31,8 +31,8 @@ const StyledHeaderLogo = styled.img`
   left: 20px;
   width: 90px;
 
-  @media (max-width: 700px) {
+  ${({theme}) => theme.small`
     display: none;
-  }
+  `}
 `
 export default Header

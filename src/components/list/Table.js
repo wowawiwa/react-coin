@@ -52,11 +52,11 @@ const StyledTable = styled.table`
 `
 
 const TableHead = styled.thead`
-  background-color: ${props => props.theme.mainContrastedBg};
+  background-color: ${({theme}) => theme.mainContrastedBg};
 
   tr th {
     padding: 10px 20px;
-    color: ${props => props.theme.secTxt};
+    color: ${({theme}) => theme.secTxt};
     text-align: left;
     font-size: 14px;
     font-weight: 400;
@@ -65,31 +65,31 @@ const TableHead = styled.thead`
 
 const TableBody = styled.tbody`
   text-align: left;
-  background-color: ${props => props.theme.mainBg};
+  background-color: ${({theme}) => theme.mainBg};
 
   tr td {
     padding: 24px 20px;
-    border-bottom: 2px solid ${props => props.theme.mainContrastedBg};
-    color: ${props => props.theme.priTxt};
+    border-bottom: 2px solid ${({theme}) => theme.mainContrastedBg};
+    color: ${({theme}) => theme.priTxt};
     cursor: pointer;
   }
 
   tr {
     :hover {
-      background-color: ${props => props.theme.mainHighlightedBg};
+      background-color: ${({theme}) => theme.mainHighlightedBg};
     }
   }
 `
 
 const TableRank = styled.span`
   margin-right: 18px;
-  color: ${props => props.theme.secTxt};
+  color: ${({theme}) => theme.secTxt};
   font-size: 12px;
 `
 
 const TableDollar = styled.span`
   margin-right: 6px;
-  color: ${props => props.theme.secTxt};
+  color: ${({theme}) => theme.secTxt};
 `
 
 export default withRouter(Table)

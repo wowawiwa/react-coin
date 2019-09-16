@@ -103,9 +103,9 @@ const StyledSearch = styled.div`
   width: 30%;
   height: 35px;
 
-  @media (max-width: 700px) {
+  ${({theme}) => theme.small`
     width: 100%;
-  }
+  `}
 
   margin: 0 auto;
   padding: 0 20px;
@@ -129,7 +129,7 @@ const SearchInput = styled.input`
   width: 100%;
   height: 35px;
   
-  background-color: ${props => props.theme.mainHighlightedBg};
+  background-color: ${({theme}) => theme.mainHighlightedBg};
   border-radius: 4px;
   border: 0;
   padding-left: 35px;
@@ -143,7 +143,7 @@ const SearchInput = styled.input`
   }
 
   ::placeholder {
-    color: ${props => props.theme.secTxt};
+    color: ${({theme}) => theme.secTxt};
     opacity: 1;
   }
 `
@@ -162,27 +162,27 @@ const SearchResultContainer = styled.div`
   
   margin-top: 10px;
 
-  background-color: ${props => props.theme.mainBg};
-  border: 1px solid ${props => props.theme.mainContrastedBg};
+  background-color: ${({theme}) => theme.mainBg};
+  border: 1px solid ${({theme}) => theme.mainContrastedBg};
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px ${props => props.theme.mainHighlightedBg};
+  box-shadow: 0px 0px 40px 0px ${({theme}) => theme.mainHighlightedBg};
 `
 
 const SearchResult = styled.div`
   padding: 15px 0 15px 35px;
   
-  color: ${props => props.theme.secTxt};
-  border-bottom: 2px solid  ${props => props.theme.mainContrastedBg};
+  color: ${({theme}) => theme.secTxt};
+  border-bottom: 2px solid  ${({theme}) => theme.mainContrastedBg};
   cursor: pointer;
   :hover {
-    color: ${props => props.theme.priTxt};
+    color: ${({theme}) => theme.priTxt};
   }
 `
 
 const SearchNoResult = styled.div`
   padding: 15px 0 15px 35px;
-  color: ${props => props.theme.secTxt};
-  border-bottom: 1px solid ${props => props.theme.mainBg};
+  color: ${({theme}) => theme.secTxt};
+  border-bottom: 1px solid ${({theme}) => theme.mainBg};
 `
 
 export default withRouter(Search)
