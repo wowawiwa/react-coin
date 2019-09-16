@@ -56,7 +56,7 @@ const StyledPaginationButton = styled.button`
   }
 
   :disabled {
-    background-color: ${props => props.theme.mainHigh};
+    background-color: ${props => props.theme.mainHighlightedBg};
     cursor: not-allowed;
   }
 `

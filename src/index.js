@@ -31,9 +31,9 @@ const theme = {
   raisedTxt: colours.green,
   fallenTxt: colours.indigo,
 
-  mainEl: colours.blueDarker,
-  mainEl2: colours.blueDarkerDarker,
-  mainHigh: colours.blue,
+  mainBg: colours.blueDarker,
+  mainContrastedBg: colours.blueDarkerDarker,
+  mainHighlightedBg: colours.blue,
 
   contrastedEl:      colours.blueLighter,
   contrastedHoverEl: colours.blueLighterGrayer,
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: ${props => props.theme.mainEl2};
+    background-color: ${props => props.theme.mainContrastedBg};
     font-family: 'Open Sans', sans-serif;
     color: ${props => props.theme.priTxt};
     letter-spacing: .5px;

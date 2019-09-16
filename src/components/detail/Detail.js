@@ -116,7 +116,7 @@ const DetailContainer = styled.div`
   padding: 40px 40px 0;
 
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px ${props => props.theme.mainHigh};
+  box-shadow: 0px 0px 40px 0px ${props => props.theme.mainHighlightedBg};
 `
 
 const DetailItem = styled.div`
@@ -128,7 +128,7 @@ const DetailValue = styled.span`
   margin-left: 10px;
 
   border-radius: 20px;
-  background-color: ${props => props.theme.mainHigh};
+  background-color: ${props => props.theme.mainHighlightedBg};
   font-size: 14px;
 `
 

@@ -22,7 +22,7 @@ const StyledHeader = styled.div`
   height: 80px;
 
   justify-content: center;
-  background-color: ${props => props.theme.mainEl};
+  background-color: ${props => props.theme.mainBg};
 `
 
 const StyledHeaderLogo = styled.img`

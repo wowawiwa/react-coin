@@ -16,7 +16,7 @@ const StyledTable = styled.table`
 `
 
 const TableHead = styled.thead`
-  background-color: ${props => props.theme.mainEl2};
+  background-color: ${props => props.theme.mainContrastedBg};
 
   tr th {
     padding: 10px 20px;
@@ -29,11 +29,11 @@ const TableHead = styled.thead`
 
 const TableBody = styled.tbody`
   text-align: left;
-  background-color: ${props => props.theme.mainEl};
+  background-color: ${props => props.theme.mainBg};
 
   tr td {
     padding: 24px 20px;
-    border-bottom: 2px solid ${props => props.theme.mainEl2};
+    border-bottom: 2px solid ${props => props.theme.mainContrastedBg};
     color: ${props => props.theme.priTxt};
     cursor: pointer;
   }
