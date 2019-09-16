@@ -6,6 +6,7 @@ Practicing React :) Live [here](https://wowawiwa.github.io/react-coin/).
 - Asynchronous call of an API
 - Frameworkless state management
 - Frameworkless CSS
+- CSS-in-JS with Styled-Components (in a second step)
 - Forms, controlled, uncontrolled
 - Routing
 - PropTypes
@@ -15,7 +16,6 @@ Practicing React :) Live [here](https://wowawiwa.github.io/react-coin/).
 
 - Tests
 - Check `TODO:` in the code
-- CSS in JS
 - Redux
 - Typescript
 
