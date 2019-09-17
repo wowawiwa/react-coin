@@ -15,8 +15,8 @@ Practicing React :) Live [here](https://wowawiwa.github.io/react-coin/).
 ## Backlog
 
 - Tests
+- Redux / Mobx
 - Check `TODO:` in the code
-- Redux
 - Typescript
 
 ## Deploy
