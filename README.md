@@ -1,6 +1,16 @@
-Practicing React :) Live [here](https://wowawiwa.github.io/react-coin/).
+# React put to work
 
-## Covering
+Built to practice React, this app is meant to have more in the code than in the functionalities. It is deliberately over engineered to test different approaches and libraries.
+
+The live version is [here](https://wowawiwa.github.io/react-coin/).
+
+## UI features
+
+- Pagination
+- Auto-suggestion
+- Routing
+
+## Technical features
 
 - Components, nesting and passing data down with props and up with events, loaders, pagination.
 - Asynchronous call of an API
@@ -31,4 +41,4 @@ Practicing React :) Live [here](https://wowawiwa.github.io/react-coin/).
 
 ## Credits
 
-Following _[Learn React by building and deploying production ready app](https://github.com/udilia/learn-react-by-building-a-web-app.git)_ by Dimi Mikadze on [Udemy](https://www.udemy.com/course/learn-react-by-building-and-deploying-production-ready-app/)
+Based on _[Learn React by building and deploying production ready app](https://github.com/udilia/learn-react-by-building-a-web-app.git)_ by Dimi Mikadze on [Udemy](https://www.udemy.com/course/learn-react-by-building-and-deploying-production-ready-app/)
